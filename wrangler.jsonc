@@ -169,7 +169,7 @@
             },
             "version": "1.0.0"
         },
-        "CUSTOM_DOMAIN": "NBDBUILDER.COM",
+        "CUSTOM_DOMAIN": "nbdbuilder.com",
         "MAX_SANDBOX_INSTANCES": "10",
         "SANDBOX_INSTANCE_TYPE": "standard-3"
     },
