@@ -7,15 +7,18 @@ interface LogoProps extends React.SVGProps<SVGSVGElement> {
 export function CloudflareLogo({ color1, ...props }: LogoProps) {
   return (
     <svg
-      viewBox="0 0 180 40"
+      viewBox="0 0 40 40"
+      width="32"
+      height="32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <rect x="2" y="8" width="10" height="10" rx="2" fill={color1 || "#F97316"}/>
-      <rect x="14" y="8" width="10" height="10" rx="2" fill="#FB923C"/>
-      <rect x="2" y="20" width="10" height="10" rx="2" fill="#FDBA74"/>
-      <rect x="14" y="20" width="10" height="10" rx="2" fill={color1 || "#F97316"}/>
+      <rect width="40" height="40" rx="8" fill={color1 || "#F97316"}/>
+      <rect x="6" y="6" width="12" height="12" rx="2" fill="white"/>
+      <rect x="22" y="6" width="12" height="12" rx="2" fill="#FED7AA"/>
+      <rect x="6" y="22" width="12" height="12" rx="2" fill="#FED7AA"/>
+      <rect x="22" y="22" width="12" height="12" rx="2" fill="white"/>
     </svg>
   );
 }
@@ -24,6 +27,8 @@ export function AIAvatar(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 32 32"
+      width="32"
+      height="32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
