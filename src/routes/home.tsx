@@ -33,7 +33,7 @@ export default function Home() {
 				def.id === 'presentation'
 					? 'Slides'
 					: def.id === 'general'
-						? 'General'
+						? 'Général'
 						: 'App',
 			description: def.description,
 		}));
@@ -66,9 +66,9 @@ export default function Home() {
 
 
 	const placeholderPhrases = useMemo(() => [
-		"todo list app",
-		"F1 fantasy game",
-		"personal finance tracker"
+		"une liste de tâches",
+		"un jeu de fantasy F1",
+		"un suivi de finances personnelles"
 	], []);
 	const [currentPlaceholderPhraseIndex, setCurrentPlaceholderPhraseIndex] = useState(0);
 	const [currentPlaceholderText, setCurrentPlaceholderText] = useState("");
@@ -90,7 +90,7 @@ export default function Home() {
 	const handleCreateApp = (query: string, mode: ProjectType) => {
 		if (query.length > MAX_AGENT_QUERY_LENGTH) {
 			toast.error(
-				`Prompt too large (${query.length} characters). Maximum allowed is ${MAX_AGENT_QUERY_LENGTH} characters.`,
+				`Prompt trop long (${query.length} caractères). Maximum autorisé : ${MAX_AGENT_QUERY_LENGTH} caractères.`,
 			);
 			return;
 		}
@@ -105,7 +105,7 @@ export default function Home() {
 		if (
 			!requireAuth({
 				requireFullAuth: true,
-				actionContext: 'to create applications',
+				actionContext: 'pour créer des applications',
 				intendedUrl: intendedUrl,
 			})
 		) {
@@ -205,7 +205,7 @@ export default function Home() {
 							discoverReady ? "mt-48" : "mt-[20vh] sm:mt-[24vh] md:mt-[28vh]"
 						)}>
 						<h1 className="text-shadow-sm text-shadow-red-200 dark:text-shadow-red-900 text-accent font-medium leading-[1.1] tracking-tight text-5xl w-full mb-4 bg-clip-text bg-gradient-to-r from-text-primary to-text-primary/90">
-							What should we build today?
+							Prêt à remplacer les humains ?
 						</h1>
 
 						<form
@@ -226,14 +226,14 @@ export default function Home() {
 							>
 								{isDragging && (
 									<div className="absolute inset-0 flex items-center justify-center bg-accent/10 backdrop-blur-sm rounded-lg z-30 pointer-events-none">
-										<p className="text-accent font-medium">Drop images here</p>
+										<p className="text-accent font-medium">Déposez les images ici</p>
 									</div>
 								)}
 								<textarea
 									className="w-full resize-none ring-0 z-20 outline-0 placeholder:text-text-primary/60 text-text-primary"
 									name="query"
 									value={query}
-									placeholder={`Create a ${currentPlaceholderText}`}
+									placeholder={`Créer ${currentPlaceholderText}`}
 									ref={textareaRef}
 									onChange={(e) => {
 										setQuery(e.target.value);
@@ -302,7 +302,7 @@ export default function Home() {
 							<div className="flex items-start gap-2 px-4 py-3 rounded-xl bg-bg-4/50 dark:bg-bg-2/50 border border-accent/20 dark:border-accent/30 shadow-sm">
 								<Info className="size-4 text-accent flex-shrink-0 mt-0.5" />
 								<p className="text-xs text-text-tertiary leading-relaxed">
-									<span className="font-medium text-text-secondary">Images Beta:</span> Images guide app layout and design but may not be replicated exactly. The coding agent cannot access images directly for app assets.
+									<span className="font-medium text-text-secondary">Images Beta :</span> Les images guident la mise en page et le design mais ne seront pas reproduites exactement. L'agent de code ne peut pas accéder directement aux images.
 								</p>
 							</div>
 						</motion.div>
@@ -321,8 +321,8 @@ export default function Home() {
 							className={clsx('max-w-6xl mx-auto px-4 z-10', images.length > 0 ? 'mt-10' : 'mt-16 mb-8')}
 						>
 							<div className='flex flex-col items-start'>
-								<h2 className="text-2xl font-medium text-text-secondary/80">Discover Apps built by the community</h2>
-								<div ref={discoverLinkRef} className="text-md font-light mb-4 text-text-tertiary hover:underline underline-offset-4 select-text cursor-pointer" onClick={() => navigate('/discover')} >View All</div>
+								<h2 className="text-2xl font-medium text-text-secondary/80">Découvrez les apps créées par la communauté</h2>
+								<div ref={discoverLinkRef} className="text-md font-light mb-4 text-text-tertiary hover:underline underline-offset-4 select-text cursor-pointer" onClick={() => navigate('/discover')} >Voir tout</div>
 								<motion.div
 									layout
 									transition={{ duration: 0.4 }}
